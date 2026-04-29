@@ -92,8 +92,8 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-20 lg:grid-cols-12 lg:gap-16 lg:pb-32 lg:pt-28">
-        <div className="lg:col-span-7 lg:pt-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 pb-24 pt-10 lg:grid-cols-12 lg:gap-16 lg:pb-32 lg:pt-14">
+        <div className="lg:col-span-7">
           <div className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-sage">
             <span className="h-px w-10 bg-sage" />
             Psicóloga clínica · Bogotá

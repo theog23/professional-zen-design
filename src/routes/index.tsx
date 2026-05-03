@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-office.jpg";
+import logoImage from "@/assets/diana-logo.png";
 import portrait from "@/assets/about-portrait.jpg";
 
 export const Route = createFileRoute("/")({
@@ -66,12 +67,9 @@ function Index() {
 function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="flex items-baseline gap-2">
-          <span className="font-serif text-xl tracking-tight text-sage-deep">Diana Sarmiento</span>
-          <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:inline">
-            Psicoterapeuta
-          </span>
+      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logoImage} alt="Diana Sarmiento Pachón - Psicoterapia Integrativa" className="h-14 w-auto" />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#cambio" className="hover:text-foreground transition-colors">El proceso</a>

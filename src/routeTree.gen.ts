@@ -13,6 +13,7 @@ import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as PsicoterapiaRouteImport } from './routes/psicoterapia'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const PsicoterapiaRoute = PsicoterapiaRouteImport.update({
   path: '/psicoterapia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/contacto': typeof ContactoRoute
   '/psicoterapia': typeof PsicoterapiaRoute
   '/resultados': typeof ResultadosRoute
   '/servicios': typeof ServiciosRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/contacto': typeof ContactoRoute
   '/psicoterapia': typeof PsicoterapiaRoute
   '/resultados': typeof ResultadosRoute
   '/servicios': typeof ServiciosRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/contacto': typeof ContactoRoute
   '/psicoterapia': typeof PsicoterapiaRoute
   '/resultados': typeof ResultadosRoute
   '/servicios': typeof ServiciosRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/contacto'
     | '/psicoterapia'
     | '/resultados'
     | '/servicios'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog'
+    | '/contacto'
     | '/psicoterapia'
     | '/resultados'
     | '/servicios'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/blog'
+    | '/contacto'
     | '/psicoterapia'
     | '/resultados'
     | '/servicios'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  ContactoRoute: typeof ContactoRoute
   PsicoterapiaRoute: typeof PsicoterapiaRoute
   ResultadosRoute: typeof ResultadosRoute
   ServiciosRoute: typeof ServiciosRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PsicoterapiaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  ContactoRoute: ContactoRoute,
   PsicoterapiaRoute: PsicoterapiaRoute,
   ResultadosRoute: ResultadosRoute,
   ServiciosRoute: ServiciosRoute,

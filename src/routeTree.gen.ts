@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreMiRouteImport } from './routes/sobre-mi'
+import { Route as PsicoterapiaRouteImport } from './routes/psicoterapia'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SobreMiRoute = SobreMiRouteImport.update({
   id: '/sobre-mi',
   path: '/sobre-mi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PsicoterapiaRoute = PsicoterapiaRouteImport.update({
+  id: '/psicoterapia',
+  path: '/psicoterapia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +31,31 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/psicoterapia': typeof PsicoterapiaRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/psicoterapia': typeof PsicoterapiaRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/psicoterapia': typeof PsicoterapiaRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre-mi'
+  fullPaths: '/' | '/psicoterapia' | '/sobre-mi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre-mi'
-  id: '__root__' | '/' | '/sobre-mi'
+  to: '/' | '/psicoterapia' | '/sobre-mi'
+  id: '__root__' | '/' | '/psicoterapia' | '/sobre-mi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PsicoterapiaRoute: typeof PsicoterapiaRoute
   SobreMiRoute: typeof SobreMiRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre-mi'
       fullPath: '/sobre-mi'
       preLoaderRoute: typeof SobreMiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/psicoterapia': {
+      id: '/psicoterapia'
+      path: '/psicoterapia'
+      fullPath: '/psicoterapia'
+      preLoaderRoute: typeof PsicoterapiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PsicoterapiaRoute: PsicoterapiaRoute,
   SobreMiRoute: SobreMiRoute,
 }
 export const routeTree = rootRouteImport

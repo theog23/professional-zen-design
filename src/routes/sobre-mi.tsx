@@ -321,6 +321,9 @@ function Nav() {
           >
             Sobre mí
           </Link>
+          <Link to="/psicoterapia" className="hover:text-foreground transition-colors">
+            Psicoterapia
+          </Link>
         </nav>
         <a
           href={WHATSAPP}

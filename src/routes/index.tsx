@@ -13,35 +13,36 @@ const WHATSAPP = `https://wa.me/573142044866?text=${encodeURIComponent(
 )}`;
 
 const services = [
-  { title: "Ansiedad y estrés", desc: "Recuperar la calma y el equilibrio frente a la sobrecarga emocional." },
-  { title: "Terapia de pareja", desc: "Reconstruir la comunicación, el vínculo y la confianza mutua." },
-  { title: "Duelo y pérdidas", desc: "Acompañamiento sereno para atravesar momentos difíciles." },
-  { title: "Depresión y estados de ánimo", desc: "Comprender y transformar lo que hoy pesa." },
-  { title: "Autoestima y desarrollo personal", desc: "Reconocer tu valor y construir una vida con propósito." },
-  { title: "Coaching profesional", desc: "Orientación para decisiones laborales y de carrera." },
-];
-
-const credentials = [
-  { year: "1997", text: "Psicóloga — Pontificia Universidad Javeriana" },
-  { year: "2000", text: "Máster en Psicoterapia Psicoanalítica — Universidad Complutense de Madrid" },
-  { year: "2012", text: "Máster en Psicología Clínica y de la Salud — Universidad de Valencia" },
-  { year: "2013", text: "Máster en Psicoterapia Cognitivo Conductual — COP Valencia" },
-  { year: "2014", text: "Psicóloga Especialista en Coaching (PEC) — COP Valencia" },
-  { year: "2015", text: "Máster en Psicoterapia Humanista Integrativa — Instituto Galene" },
+  {
+    title: "Terapia individual",
+    desc: "El espacio más profundo para entenderte y transformarte.",
+  },
+  {
+    title: "Terapia de pareja",
+    desc: "Trabajar juntos lo que solos no se puede.",
+  },
+  {
+    title: "Niños y adolescentes",
+    desc: "Acompañamiento especializado en etapas clave.",
+  },
+  {
+    title: "Grupos y procesos colectivos",
+    desc: "Dinámicas compartidas con trabajo individual.",
+  },
+  {
+    title: "Coaching personal y ejecutivo",
+    desc: "Claridad y decisiones cuando no hay patología clínica.",
+  },
 ];
 
 const testimonials = [
   {
-    text: "Empecé el proceso en un momento difícil. Diana me recibió con calidez y sin juicio. Hoy me siento empoderada y con herramientas reales para mi vida.",
-    name: "Betty Carolina",
+    text: "Creó un espacio seguro donde es posible expresarse libremente y sentirse verdaderamente escuchado. Gracias a su acompañamiento he podido comprender mejor mis emociones y desarrollar herramientas para afrontar distintas situaciones de una manera más saludable y consciente.",
+    name: "Nathalia",
   },
   {
-    text: "Un proceso interesante, creativo y diferente. Aprendí a comunicarme de forma asertiva y a soltar el drama. Gracias.",
-    name: "Dinah Ortiz",
-  },
-  {
-    text: "Gracias a la psicoterapia he podido encontrarme conmigo misma, crecer y descubrir que somos inmensos por el solo hecho de existir.",
-    name: "Jeannethe Ardila",
+    text: "Me ayudó a recuperar la confianza en mí misma, incluso en los momentos en que yo misma no creía en mí. Encontré claridad cuando todo parecía confuso, y me sentí escuchada y acompañada en los momentos más difíciles de mi vida.",
+    name: "Betty",
   },
 ];
 
@@ -51,9 +52,9 @@ function Index() {
       <Nav />
       <Hero />
       <TrustStrip />
-      <About />
-      <Approach />
+      <WhatChanges />
       <Services />
+      <MidCTA />
       <Testimonials />
       <CTA />
       <Footer />
@@ -69,20 +70,22 @@ function Nav() {
         <a href="#top" className="flex items-baseline gap-2">
           <span className="font-serif text-xl tracking-tight text-sage-deep">Diana Sarmiento</span>
           <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:inline">
-            Psicología clínica
+            Psicoterapeuta
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#sobre-mi" className="hover:text-foreground transition-colors">Sobre mí</a>
-          <a href="#enfoque" className="hover:text-foreground transition-colors">Enfoque</a>
-          <a href="#servicios" className="hover:text-foreground transition-colors">Servicios</a>
+          <a href="#cambio" className="hover:text-foreground transition-colors">El proceso</a>
+          <a href="#servicios" className="hover:text-foreground transition-colors">Lo que ofrezco</a>
           <a href="#testimonios" className="hover:text-foreground transition-colors">Testimonios</a>
+          <a href="#contacto" className="hover:text-foreground transition-colors">Contacto</a>
         </nav>
         <a
-          href="#contacto"
+          href={WHATSAPP}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
         >
-          Agendar
+          Contactar
         </a>
       </div>
     </header>
@@ -96,16 +99,21 @@ function Hero() {
         <div className="lg:col-span-7">
           <div className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-sage">
             <span className="h-px w-10 bg-sage" />
-            Psicóloga clínica · Bogotá
+            Psicoterapeuta · Psicóloga Clínica
           </div>
           <h1 className="font-serif text-5xl leading-[1.05] text-balance text-foreground sm:text-6xl lg:text-7xl">
-            Un espacio sereno para
-            <em className="text-sage-deep"> reencontrarte</em> contigo.
+            Diana Sarmiento <em className="text-sage-deep">Pachón</em>
           </h1>
+          <p className="mt-8 max-w-xl font-serif text-2xl italic leading-snug text-sage-deep">
+            «Mis pacientes pagan por mi conocimiento. Pero yo pongo el amor.»
+          </p>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Psicoterapia integrativa diseñada a la medida de cada persona.
-            Más de 25 años acompañando procesos de cambio profundo, con
-            sesiones online y presenciales en Bogotá.
+            Más de 30 años acompañando a personas a conquistarse a sí mismas,
+            descubrir su valor y construir una vida más libre y consciente.
+          </p>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+            Trabajo de forma presencial y online, en español e inglés, con
+            personas en distintas partes del mundo.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
@@ -118,16 +126,22 @@ function Hero() {
               <span aria-hidden>→</span>
             </a>
             <a
-              href={`tel:${PHONE}`}
+              href="#servicios"
               className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            >
+              Ver lo que ofrezco
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-sage-deep underline-offset-4 hover:underline"
             >
               {PHONE_DISPLAY}
             </a>
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs uppercase tracking-wider text-muted-foreground">
-            <span>· Certificado Europsy</span>
-            <span>· U. Javeriana</span>
-            <span>· U. Complutense de Madrid</span>
+            <span>· Presencial y online</span>
+            <span>· Español e inglés</span>
+            <span>· 30+ años de experiencia</span>
           </div>
         </div>
         <div className="relative lg:col-span-5">
@@ -140,11 +154,19 @@ function Hero() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden max-w-[220px] rounded-sm bg-card p-5 shadow-lg ring-1 ring-border lg:block">
-            <p className="font-serif text-2xl leading-tight text-sage-deep">25+</p>
+          <div className="absolute -bottom-6 -left-6 hidden max-w-[240px] rounded-sm bg-card p-5 shadow-lg ring-1 ring-border lg:block">
+            <p className="font-serif text-2xl leading-tight text-sage-deep">30+</p>
             <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
-              Años de experiencia clínica
+              Años acompañando procesos
             </p>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-sage-deep hover:underline"
+            >
+              Hablemos →
+            </a>
           </div>
         </div>
       </div>
@@ -171,9 +193,9 @@ function TrustStrip() {
   );
 }
 
-function About() {
+function WhatChanges() {
   return (
-    <section id="sobre-mi" className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
+    <section id="cambio" className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-5">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
@@ -188,68 +210,32 @@ function About() {
           </div>
         </div>
         <div className="lg:col-span-7">
-          <p className="text-xs uppercase tracking-[0.3em] text-sage">Sobre mí</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-sage">El proceso</p>
           <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
-            Cada persona merece un tratamiento hecho a su medida.
+            ¿Qué puede cambiar contigo?
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Soy Diana Sarmiento Pachón, psicóloga clínica con más de dos décadas
-            de práctica entre España y Colombia. Mi formación integra distintas
-            corrientes —psicoanalítica, cognitivo conductual, humanista
-            integrativa y coaching— para construir contigo un proceso terapéutico
-            verdaderamente personal.
+          <p className="mt-8 text-lg leading-relaxed text-foreground/90">
+            No prometo soluciones rápidas. Lo que sí ofrezco es un proceso
+            serio, profundo y personalizado que genera cambios reales —
+            no solo alivio temporal, sino una transformación genuina en cómo
+            piensas, sientes y te relacionas.
           </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            No creo en fórmulas. Creo en la escucha atenta, en el respeto por tu
-            historia y en herramientas eficaces que se adaptan a quién eres hoy.
-          </p>
-
-          <ul className="mt-12 space-y-5">
-            {credentials.map((c) => (
-              <li key={c.year} className="flex gap-6 border-b border-border/60 pb-5">
-                <span className="font-serif text-lg text-sage-deep w-16 shrink-0">{c.year}</span>
-                <span className="text-sm leading-relaxed text-foreground/90">{c.text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Approach() {
-  return (
-    <section id="enfoque" className="bg-secondary/50">
-      <div className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="text-xs uppercase tracking-[0.3em] text-sage">El enfoque</p>
-            <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
-              Terapia integrativa multicomponente.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <p className="text-lg leading-relaxed text-foreground/90">
-              Una psicoterapia más breve que el psicoanálisis y más profunda
-              que la cognitivo conductual. No te ajusto a un método: estructuro
-              la solución según tu personalidad, tus fortalezas y aquello que
-              hoy te pesa.
-            </p>
-            <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2">
-              {[
-                { n: "01", t: "Personal", d: "Cada proceso se diseña para tu historia, tu ritmo y tus objetivos." },
-                { n: "02", t: "Profundo", d: "Trabajamos el síntoma y, sobre todo, lo que lo origina." },
-                { n: "03", t: "Eficaz", d: "Combinamos herramientas validadas: humanista, cognitiva, coaching." },
-                { n: "04", t: "Duradero", d: "Aprendes habilidades para sostener el cambio mucho después de terminar." },
-              ].map((b) => (
-                <div key={b.n}>
-                  <span className="font-serif text-sm text-sage">{b.n}</span>
-                  <h3 className="mt-2 font-serif text-2xl text-foreground">{b.t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.d}</p>
-                </div>
-              ))}
-            </div>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
+            >
+              Comenzar mi proceso
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href="#servicios"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            >
+              Ver modalidades
+            </a>
           </div>
         </div>
       </div>
@@ -259,33 +245,86 @@ function Approach() {
 
 function Services() {
   return (
-    <section id="servicios" className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
-      <div className="max-w-2xl">
-        <p className="text-xs uppercase tracking-[0.3em] text-sage">Servicios</p>
-        <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
-          En qué puedo acompañarte.
-        </h2>
-        <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-          Sesiones individuales, de pareja y grupales. Modalidad online por
-          videollamada o presencial en Bogotá.
-        </p>
-      </div>
-      <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-border sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s, i) => (
-          <article
-            key={s.title}
-            className="group bg-background p-8 transition-colors hover:bg-secondary/40"
-          >
-            <span className="font-serif text-xs text-sage">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <h3 className="mt-4 font-serif text-2xl text-foreground">{s.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            <div className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sage-deep opacity-0 transition-opacity group-hover:opacity-100">
-              Consultar <span aria-hidden>→</span>
+    <section id="servicios" className="bg-secondary/50">
+      <div className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
+        <div className="max-w-2xl">
+          <p className="text-xs uppercase tracking-[0.3em] text-sage">Lo que ofrezco</p>
+          <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground sm:text-5xl">
+            Cinco maneras de acompañarte.
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            Modalidad presencial y online · Español e inglés · Personas en
+            cualquier parte del mundo.
+          </p>
+        </div>
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <article
+              key={s.title}
+              className="group flex flex-col bg-background p-8 transition-colors hover:bg-secondary/40"
+            >
+              <span className="font-serif text-xs text-sage">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 font-serif text-2xl text-foreground">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-wider text-sage-deep transition-opacity hover:opacity-80"
+              >
+                Consultar <span aria-hidden>→</span>
+              </a>
+            </article>
+          ))}
+          <article className="flex flex-col justify-between bg-sage-deep p-8 text-primary-foreground">
+            <div>
+              <span className="font-serif text-xs text-primary-foreground/70">→</span>
+              <h3 className="mt-4 font-serif text-2xl">¿No sabes por dónde empezar?</h3>
+              <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
+                Conversemos. Una primera llamada permite definir el camino más
+                adecuado para ti.
+              </p>
             </div>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-wider text-primary-foreground hover:underline"
+            >
+              Escribirme <span aria-hidden>→</span>
+            </a>
           </article>
-        ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MidCTA() {
+  return (
+    <section className="border-y border-border bg-background">
+      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-6 py-12 md:flex-row md:items-center">
+        <p className="font-serif text-2xl text-foreground sm:text-3xl">
+          Da el primer paso. Hoy.
+        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
+          >
+            Escribir por WhatsApp →
+          </a>
+          <a
+            href={`tel:${PHONE}`}
+            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+          >
+            Llamar {PHONE_DISPLAY}
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -300,15 +339,15 @@ function Testimonials() {
             Testimonios
           </p>
           <h2 className="mt-6 font-serif text-4xl leading-tight sm:text-5xl">
-            Procesos reales, transformaciones duraderas.
+            Lo que dicen quienes han trabajado conmigo.
           </h2>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
           {testimonials.map((t) => (
             <figure key={t.name} className="border-t border-primary-foreground/15 pt-8">
               <blockquote>
                 <p className="font-serif text-lg italic leading-relaxed text-primary-foreground/90">
-                  “{t.text}”
+                  «{t.text}»
                 </p>
               </blockquote>
               <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-primary-foreground/60">
@@ -316,6 +355,16 @@ function Testimonials() {
               </figcaption>
             </figure>
           ))}
+        </div>
+        <div className="mt-16">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-medium text-sage-deep transition-colors hover:bg-background/90"
+          >
+            Quiero comenzar mi proceso →
+          </a>
         </div>
       </div>
     </section>
@@ -327,15 +376,31 @@ function CTA() {
     <section id="contacto" className="mx-auto max-w-6xl px-6 py-28 lg:py-36">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <p className="text-xs uppercase tracking-[0.3em] text-sage">Primer paso</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-sage">¿Hablamos?</p>
           <h2 className="mt-6 font-serif text-4xl leading-tight text-foreground sm:text-5xl lg:text-6xl">
-            Pedir ayuda es el comienzo del cambio.
+            Todas las sesiones tienen valor profesional — incluida la primera.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Conversemos sobre lo que estás viviendo. Una primera llamada
-            permite conocernos y definir si la terapia es el camino adecuado
-            para ti en este momento.
+            Presencial y online · Español e inglés · Personas en cualquier
+            parte del mundo.
           </p>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
+            >
+              Contactar
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+            >
+              {PHONE_DISPLAY}
+            </a>
+          </div>
         </div>
         <div className="lg:col-span-5">
           <div className="space-y-4 rounded-sm border border-border bg-card p-8">
@@ -372,7 +437,7 @@ function Footer() {
           <div>
             <p className="font-serif text-lg text-sage-deep">Diana Sarmiento Pachón</p>
             <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
-              Psicología clínica · Bogotá
+              Psicoterapeuta · Psicóloga Clínica
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-6 text-xs uppercase tracking-wider text-muted-foreground">

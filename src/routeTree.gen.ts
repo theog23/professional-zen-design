@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreMiRouteImport } from './routes/sobre-mi'
+import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as PsicoterapiaRouteImport } from './routes/psicoterapia'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SobreMiRoute = SobreMiRouteImport.update({
   id: '/sobre-mi',
   path: '/sobre-mi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PsicoterapiaRoute = PsicoterapiaRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/psicoterapia': typeof PsicoterapiaRoute
+  '/servicios': typeof ServiciosRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/psicoterapia': typeof PsicoterapiaRoute
+  '/servicios': typeof ServiciosRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/psicoterapia': typeof PsicoterapiaRoute
+  '/servicios': typeof ServiciosRoute
   '/sobre-mi': typeof SobreMiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/psicoterapia' | '/sobre-mi'
+  fullPaths: '/' | '/psicoterapia' | '/servicios' | '/sobre-mi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/psicoterapia' | '/sobre-mi'
-  id: '__root__' | '/' | '/psicoterapia' | '/sobre-mi'
+  to: '/' | '/psicoterapia' | '/servicios' | '/sobre-mi'
+  id: '__root__' | '/' | '/psicoterapia' | '/servicios' | '/sobre-mi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PsicoterapiaRoute: typeof PsicoterapiaRoute
+  ServiciosRoute: typeof ServiciosRoute
   SobreMiRoute: typeof SobreMiRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre-mi'
       fullPath: '/sobre-mi'
       preLoaderRoute: typeof SobreMiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/psicoterapia': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PsicoterapiaRoute: PsicoterapiaRoute,
+  ServiciosRoute: ServiciosRoute,
   SobreMiRoute: SobreMiRoute,
 }
 export const routeTree = rootRouteImport

@@ -286,13 +286,24 @@ type ServiceCardProps = {
   children?: React.ReactNode;
 };
 
-function ServiceCard({ number, title, badge, description, note, children }: ServiceCardProps) {
+function ServiceCard({
+  number,
+  title,
+  badge,
+  description,
+  note,
+  children,
+  defaultOpen = false,
+}: ServiceCardProps & { defaultOpen?: boolean }) {
   return (
-    <article className="rounded-3xl border border-border/60 bg-background p-8 shadow-sm sm:p-10">
-      <div className="flex items-baseline gap-4">
-        <span className="font-serif text-2xl text-sage">{number}</span>
-        <div className="flex flex-wrap items-baseline gap-3">
-          <h3 className="font-serif text-2xl tracking-tight text-foreground sm:text-3xl">
+    <details
+      open={defaultOpen}
+      className="group overflow-hidden rounded-3xl border border-border/60 bg-background shadow-sm transition-colors hover:border-sage/40 [&_summary::-webkit-details-marker]:hidden"
+    >
+      <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-6 sm:px-10 sm:py-7">
+        <span className="font-serif text-2xl text-sage tabular-nums">{number}</span>
+        <div className="flex flex-1 flex-wrap items-baseline gap-3">
+          <h3 className="font-serif text-xl tracking-tight text-foreground sm:text-2xl">
             {title}
           </h3>
           {badge && (
@@ -301,19 +312,34 @@ function ServiceCard({ number, title, badge, description, note, children }: Serv
             </span>
           )}
         </div>
+        <span className="hidden items-center gap-2 text-xs uppercase tracking-[0.2em] text-sage sm:flex">
+          <span className="group-open:hidden">Ver más</span>
+          <span className="hidden group-open:inline">Cerrar</span>
+        </span>
+        <span
+          aria-hidden
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sage/40 text-sage transition-transform duration-300 group-open:rotate-45"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1.5v11M1.5 7h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        </span>
+      </summary>
+      <div className="border-t border-border/60 px-6 py-8 sm:px-10 sm:py-10">
+        {description && (
+          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {description}
+          </p>
+        )}
+        {children}
+        {note && (
+          <p className="mt-6 text-sm italic leading-relaxed text-muted-foreground">{note}</p>
+        )}
       </div>
-      {description && (
-        <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {description}
-        </p>
-      )}
-      {children}
-      {note && (
-        <p className="mt-6 text-sm italic leading-relaxed text-muted-foreground">{note}</p>
-      )}
-    </article>
+    </details>
   );
 }
+
 
 function ChipList({ items }: { items: string[] }) {
   return (
@@ -369,7 +395,8 @@ function Servicios() {
           <ServiceCard
             number="01"
             title="Terapia Individual"
-            badge="★ Servicio principal"
+            badge="◆ Servicio principal"
+            defaultOpen
             description="Proceso psicoterapéutico profundo orientado al autoconocimiento, la regulación emocional, la transformación de patrones relacionales y la resolución de conflictos internos desde un enfoque integrativo multinivel y multicomponente."
           >
             <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">

@@ -405,6 +405,9 @@ function Nav() {
           >
             Psicoterapia
           </Link>
+          <Link to="/servicios" className="hover:text-foreground transition-colors">
+            Servicios
+          </Link>
         </nav>
         <a
           href={WHATSAPP}

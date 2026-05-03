@@ -83,6 +83,7 @@ function Nav() {
           <Link to="/psicoterapia" className="hover:text-foreground transition-colors">Psicoterapia</Link>
           <Link to="/servicios" className="hover:text-foreground transition-colors">Servicios</Link>
           <Link to="/resultados" className="hover:text-foreground transition-colors">Resultados</Link>
+          <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
           <a href="#servicios" className="hover:text-foreground transition-colors">Lo que ofrezco</a>
           <a href="#testimonios" className="hover:text-foreground transition-colors">Testimonios</a>
           <a href="#contacto" className="hover:text-foreground transition-colors">Contacto</a>

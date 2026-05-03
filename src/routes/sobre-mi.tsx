@@ -303,6 +303,12 @@ function Nav() {
             alt="Diana Sarmiento Pachón - Psicoterapia Integrativa"
             className="h-14 w-auto"
           />
+          <span className="hidden sm:flex items-baseline gap-2">
+            <span className="font-serif text-xl tracking-tight text-sage-deep">Diana Sarmiento</span>
+            <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground lg:inline">
+              Psicoterapeuta
+            </span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <Link to="/" className="hover:text-foreground transition-colors">

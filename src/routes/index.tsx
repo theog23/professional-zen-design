@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-office.jpg";
 import logoImage from "@/assets/diana-logo.png";
 import portrait from "@/assets/about-portrait.jpg";
@@ -73,6 +73,7 @@ function Nav() {
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#cambio" className="hover:text-foreground transition-colors">El proceso</a>
+          <Link to="/sobre-mi" className="hover:text-foreground transition-colors">Sobre mí</Link>
           <a href="#servicios" className="hover:text-foreground transition-colors">Lo que ofrezco</a>
           <a href="#testimonios" className="hover:text-foreground transition-colors">Testimonios</a>
           <a href="#contacto" className="hover:text-foreground transition-colors">Contacto</a>

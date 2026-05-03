@@ -70,6 +70,12 @@ function Nav() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-3">
           <img src={logoImage} alt="Diana Sarmiento Pachón - Psicoterapia Integrativa" className="h-14 w-auto" />
+          <span className="hidden sm:flex items-baseline gap-2">
+            <span className="font-serif text-xl tracking-tight text-sage-deep">Diana Sarmiento</span>
+            <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground lg:inline">
+              Psicoterapeuta
+            </span>
+          </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#cambio" className="hover:text-foreground transition-colors">El proceso</a>

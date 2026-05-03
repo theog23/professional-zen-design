@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+
 import logoImage from "@/assets/diana-logo.png";
-import portrait from "@/assets/about-portrait.jpg";
+import portrait from "@/assets/diana-portrait.png";
 
 export const Route = createFileRoute("/sobre-mi")({
   head: () => ({
@@ -164,52 +165,65 @@ function SobreMi() {
         </div>
       </section>
 
-      {/* Detalle clínico */}
-      <section className="py-24">
+      {/* Detalle clínico — colapsable */}
+      <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-sage">
-            Detalle del enfoque clínico
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-foreground sm:text-4xl">
-            Para profundizar
-          </h2>
+          <details className="group rounded-2xl border border-border/60 bg-muted/20 transition-colors hover:bg-muted/30 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 sm:px-8">
+              <span className="flex items-center gap-3">
+                <span className="font-serif text-xl text-sage-deep transition-transform duration-300 group-open:rotate-90">
+                  ▸
+                </span>
+                <span className="font-serif text-lg text-foreground sm:text-xl">
+                  Para profundizar: detalle del enfoque clínico
+                </span>
+              </span>
+              <span className="hidden text-xs uppercase tracking-[0.25em] text-muted-foreground sm:inline">
+                <span className="group-open:hidden">Abrir</span>
+                <span className="hidden group-open:inline">Cerrar</span>
+              </span>
+            </summary>
 
-          <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
-            <p>
-              Mi trabajo parte de una comprensión psicodinámica del funcionamiento
-              psicológico, que permite realizar diagnósticos clínicos precisos y
-              comprender los distintos niveles de organización, conflicto y posible daño
-              estructural de la personalidad.
-            </p>
-            <p className="text-foreground">
-              Desde esta base, el abordaje se desarrolla de manera:
-            </p>
-          </div>
+            <div className="border-t border-border/60 px-6 py-8 sm:px-8 sm:py-10">
+              <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Mi trabajo parte de una comprensión psicodinámica del funcionamiento
+                  psicológico, que permite realizar diagnósticos clínicos precisos y
+                  comprender los distintos niveles de organización, conflicto y posible
+                  daño estructural de la personalidad.
+                </p>
+                <p className="text-foreground">
+                  Desde esta base, el abordaje se desarrolla de manera:
+                </p>
+              </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-sage/30 bg-sage/5 p-8">
-              <h3 className="font-serif text-2xl text-sage-deep">Multinivel</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">
-                Trabajando desde los niveles más profundos y estructurales hasta los
-                niveles más manifiestos como síntomas, conductas y dificultades actuales.
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <div className="rounded-2xl border border-sage/30 bg-sage/5 p-8">
+                  <h3 className="font-serif text-2xl text-sage-deep">Multinivel</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    Trabajando desde los niveles más profundos y estructurales hasta los
+                    niveles más manifiestos como síntomas, conductas y dificultades
+                    actuales.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-sage/30 bg-sage/5 p-8">
+                  <h3 className="font-serif text-2xl text-sage-deep">Multicomponente</h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    Integrando herramientas clínicas provenientes de distintas
+                    psicoterapias según las necesidades del caso, sin perder coherencia ni
+                    profundidad clínica.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+                De forma transversal, el proceso terapéutico trabaja y fortalece la
+                regulación emocional, la integración psíquica, la autoestima, la
+                tolerancia a la frustración, los estilos de apego y la comprensión de las
+                estructuras de personalidad.
               </p>
             </div>
-            <div className="rounded-2xl border border-sage/30 bg-sage/5 p-8">
-              <h3 className="font-serif text-2xl text-sage-deep">Multicomponente</h3>
-              <p className="mt-3 text-muted-foreground leading-relaxed">
-                Integrando herramientas clínicas provenientes de distintas psicoterapias
-                según las necesidades del caso, sin perder coherencia ni profundidad
-                clínica.
-              </p>
-            </div>
-          </div>
-
-          <p className="mt-10 text-lg leading-relaxed text-muted-foreground">
-            De forma transversal, el proceso terapéutico trabaja y fortalece la regulación
-            emocional, la integración psíquica, la autoestima, la tolerancia a la
-            frustración, los estilos de apego y la comprensión de las estructuras de
-            personalidad.
-          </p>
+          </details>
         </div>
       </section>
 

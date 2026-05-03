@@ -166,15 +166,8 @@ function Resultados() {
                 sentí escuchada y acompañada en los momentos más difíciles de mi vida.
                 <span className="ml-1 text-3xl text-sage">&rdquo;</span>
               </blockquote>
-              <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-sage/40 bg-sage/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-sage-deep">
-                ★ Video testimonio próximamente
-              </p>
             </article>
           </div>
-
-          <p className="mt-10 text-center text-base italic text-muted-foreground">
-            Más testimonios próximamente.
-          </p>
         </div>
       </section>
 
@@ -190,7 +183,6 @@ function Resultados() {
             voluntaria y con consentimiento explícito de las personas que los han escrito.
             Los nombres utilizados son los que cada persona ha elegido usar libremente.
           </p>
-          <CTAButtons light />
         </div>
       </section>
 

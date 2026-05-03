@@ -230,12 +230,11 @@ function Nav() {
           <Link to="/resultados" className="hover:text-foreground transition-colors">
             Resultados
           </Link>
-          <Link
-            to="/blog"
-            className="text-foreground transition-colors"
-            activeProps={{ className: "text-foreground font-medium" }}
-          >
+          <Link to="/blog" className="hover:text-foreground transition-colors">
             Blog
+          </Link>
+          <Link to="/contacto" className="hover:text-foreground transition-colors">
+            Contacto
           </Link>
         </nav>
         <a

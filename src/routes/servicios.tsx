@@ -674,6 +674,9 @@ function Nav() {
           <Link to="/blog" className="hover:text-foreground transition-colors">
             Blog
           </Link>
+          <Link to="/contacto" className="hover:text-foreground transition-colors">
+            Contacto
+          </Link>
         </nav>
         <a
           href={WHATSAPP}

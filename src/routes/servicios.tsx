@@ -395,7 +395,6 @@ function Servicios() {
           <ServiceCard
             number="01"
             title="Terapia Individual"
-            badge="◆ Servicio principal"
             defaultOpen
             description="Proceso psicoterapéutico profundo orientado al autoconocimiento, la regulación emocional, la transformación de patrones relacionales y la resolución de conflictos internos desde un enfoque integrativo multinivel y multicomponente."
           >

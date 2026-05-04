@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import heroImage from "@/assets/hero-office.jpg";
 import logoImage from "@/assets/diana-logo.png";
 import portrait from "@/assets/about-portrait.jpg";

@@ -82,9 +82,8 @@ function Nav() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-3">
           <img src={logoImage} alt="Diana Sarmiento Pachón - Psicoterapia Integrativa" className="h-12 w-auto sm:h-14" />
-          <span className="flex flex-col leading-tight sm:flex-row sm:items-baseline sm:gap-2">
-            <span className="font-serif text-sm tracking-tight text-sage-deep sm:text-xl">Diana</span>
-            <span className="font-serif text-sm tracking-tight text-sage-deep sm:text-xl">Sarmiento</span>
+          <span className="flex items-baseline gap-2">
+            <span className="font-serif text-lg tracking-tight text-sage-deep sm:text-xl">Diana Sarmiento</span>
             <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground lg:inline">
               Psicoterapeuta
             </span>

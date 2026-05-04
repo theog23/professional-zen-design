@@ -67,35 +67,79 @@ function Index() {
 }
 
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const links = [
+    { to: "/sobre-mi", label: "Sobre mí" },
+    { to: "/psicoterapia", label: "Psicoterapia" },
+    { to: "/servicios", label: "Servicios" },
+    { to: "/resultados", label: "Resultados" },
+    { to: "/blog", label: "Blog" },
+    { to: "/contacto", label: "Contacto" },
+  ] as const;
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logoImage} alt="Diana Sarmiento Pachón - Psicoterapia Integrativa" className="h-14 w-auto" />
-          <span className="hidden sm:flex items-baseline gap-2">
-            <span className="font-serif text-xl tracking-tight text-sage-deep">Diana Sarmiento</span>
+          <img src={logoImage} alt="Diana Sarmiento Pachón - Psicoterapia Integrativa" className="h-12 w-auto sm:h-14" />
+          <span className="flex flex-col leading-tight sm:flex-row sm:items-baseline sm:gap-2">
+            <span className="font-serif text-sm tracking-tight text-sage-deep sm:text-xl">Diana</span>
+            <span className="font-serif text-sm tracking-tight text-sage-deep sm:text-xl">Sarmiento</span>
             <span className="hidden text-[10px] uppercase tracking-[0.25em] text-muted-foreground lg:inline">
               Psicoterapeuta
             </span>
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <Link to="/sobre-mi" className="hover:text-foreground transition-colors">Sobre mí</Link>
-          <Link to="/psicoterapia" className="hover:text-foreground transition-colors">Psicoterapia</Link>
-          <Link to="/servicios" className="hover:text-foreground transition-colors">Servicios</Link>
-          <Link to="/resultados" className="hover:text-foreground transition-colors">Resultados</Link>
-          <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-          <Link to="/contacto" className="hover:text-foreground transition-colors">Contacto</Link>
+          {links.map((l) => (
+            <Link key={l.to} to={l.to} className="hover:text-foreground transition-colors">{l.label}</Link>
+          ))}
         </nav>
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
-        >
-          Contactar
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
+          >
+            Contactar
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground md:hidden"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav className="border-t border-border/60 bg-background md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col px-6 py-4">
+            {links.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                className="py-3 text-base text-foreground border-b border-border/40 last:border-b-0 hover:text-sage-deep transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-4 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-sage-deep"
+            >
+              Contactar
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

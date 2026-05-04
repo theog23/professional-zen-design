@@ -78,7 +78,6 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#cambio" className="hover:text-foreground transition-colors">El proceso</a>
           <Link to="/sobre-mi" className="hover:text-foreground transition-colors">Sobre mí</Link>
           <Link to="/psicoterapia" className="hover:text-foreground transition-colors">Psicoterapia</Link>
           <Link to="/servicios" className="hover:text-foreground transition-colors">Servicios</Link>

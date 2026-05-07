@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import heroImage from "@/assets/hero-office.jpg";
+import heroPortrait from "@/assets/diana-portrait.png";
 import logoImage from "@/assets/diana-logo.png";
 import portrait from "@/assets/about-portrait.jpg";
 
@@ -198,26 +198,12 @@ function Hero() {
         <div className="relative lg:col-span-5">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
             <img
-              src={heroImage}
-              alt="Espacio de consulta de psicoterapia, cálido y minimalista"
+              src={heroPortrait}
+              alt="Diana Sarmiento Pachón, psicoterapeuta"
               width={1280}
               height={1600}
               className="h-full w-full object-cover"
             />
-          </div>
-          <div className="absolute -bottom-6 -left-6 hidden max-w-[240px] rounded-sm bg-card p-5 shadow-lg ring-1 ring-border lg:block">
-            <p className="font-serif text-2xl leading-tight text-sage-deep">30+</p>
-            <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
-              Años acompañando procesos
-            </p>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-sage-deep hover:underline"
-            >
-              Hablemos →
-            </a>
           </div>
         </div>
       </div>

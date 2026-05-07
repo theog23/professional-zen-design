@@ -47,8 +47,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.02 145);
 
-  /* Deep sage green — sobrio, profesional, transmite confianza */
-  --primary: oklch(0.42 0.05 145);
+  /* Sage green — más claro y luminoso */
+  --primary: oklch(0.52 0.055 145);
   --primary-foreground: oklch(0.985 0.008 95);
 
   --secondary: oklch(0.94 0.012 110);
@@ -65,11 +65,11 @@
 
   --border: oklch(0.9 0.01 110);
   --input: oklch(0.9 0.01 110);
-  --ring: oklch(0.42 0.05 145);
+  --ring: oklch(0.52 0.055 145);
 
   --cream: oklch(0.97 0.012 90);
-  --sage: oklch(0.55 0.04 145);
-  --sage-deep: oklch(0.32 0.045 145);
+  --sage: oklch(0.62 0.045 145);
+  --sage-deep: oklch(0.42 0.05 145);
 
   --font-serif: "Cormorant Garamond", "Georgia", serif;
   --font-sans: "Inter", system-ui, sans-serif;
